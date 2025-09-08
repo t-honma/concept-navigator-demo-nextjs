@@ -1,15 +1,19 @@
-# Concept Navigator – 7 Questions Demo (Next.js)
+# Concept Navigator – 13 Questions Demo (Next.js)
 
-デモ：固定 7 質問 → 回答をまとめて OpenAI に投げ、Concept & Description（3案）を JSON で返します。
+改修版:
+- Step0 をフローに統合し、全13問に。
+- 入力欄は Enter で送信されず、「保存して進む」ボタンでのみ進行。
+- 出力は JSONではなく、カード風に Concept & Description を整形表示。
+
+---
 
 ## セットアップ
 
 ```bash
 npm i
-# or: pnpm i / yarn
 ```
 
-`.env` をプロジェクト直下に作成：
+`.env` に APIキーを設定:
 
 ```
 OPENAI_API_KEY=sk-...
@@ -21,19 +25,6 @@ OPENAI_API_KEY=sk-...
 npm run dev
 ```
 
-http://localhost:3000 を開いてください。
-
 ## デプロイ
 
-- Vercel を推奨（Edge Runtime 対応）。
-- Project Settings → Environment Variables に `OPENAI_API_KEY` を追加。
-
-## カスタマイズ
-
-- `app/api/generate/route.ts` の `model` をお好みのものに変更可。
-- プロンプト（最終出力形式）は `buildPrompt` で組み立てています。
-- UI の質問文は `app/page.tsx` の `QUESTIONS` 配列を編集。
-
----
-
-© Concept Navigator Demo
+Vercel推奨。環境変数に OPENAI_API_KEY を設定してください。
