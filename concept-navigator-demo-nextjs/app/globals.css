@@ -1,0 +1,40 @@
+
+:root { --bg:#0b0c10; --card:#111218; --muted:#8b8f98; --fg:#e6e6e6; --accent:#7dd3fc; }
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; height: 100%; }
+body {
+  background: radial-gradient(1200px 600px at 80% -200px, rgba(125,211,252,.08), transparent),
+              radial-gradient(900px 500px at -100px 50%, rgba(125,211,252,.08), transparent),
+              var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 28px; margin: 8px 0 16px; }
+.small { color: var(--muted); font-size: 13px; }
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.04);
+}
+.row { display:flex; gap:16px; flex-wrap:wrap; }
+.input, textarea, select {
+  width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02); color: var(--fg); outline: none;
+}
+textarea { min-height: 120px; resize: vertical; }
+button {
+  appearance: none; border: 0; padding: 10px 14px; border-radius: 12px; cursor: pointer;
+  background: linear-gradient(180deg, #1f2937, #0f172a); color: #fff; font-weight: 600;
+  border: 1px solid rgba(255,255,255,.12);
+}
+button.primary { background: linear-gradient(180deg, #06b6d4, #0284c7); }
+button:disabled { opacity: .6; cursor: not-allowed; }
+.badge { display:inline-flex; gap:8px; align-items:center; font-size:12px; color:var(--muted); }
+.kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; padding:2px 6px; background:rgba(255,255,255,.06); border-radius:6px; border:1px solid rgba(255,255,255,.08); }
+ul.clean { list-style:none; padding:0; margin:0; }
+hr { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 16px 0; }
+.code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; white-space: pre-wrap; background: rgba(0,0,0,.35); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,.08); }
+footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
