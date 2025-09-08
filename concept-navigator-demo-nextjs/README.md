@@ -1,11 +1,9 @@
-# Concept Navigator – 13 Questions Demo (Next.js)
+# Concept Navigator – 13 Questions Demo v4 (Next.js)
 
-改修版:
-- Step0 をフローに統合し、全13問に。
-- 入力欄は Enter で送信されず、「保存して進む」ボタンでのみ進行。
-- 出力は JSONではなく、カード風に Concept & Description を整形表示。
-
----
+改修内容:
+- 最後の質問を保存したら「保存して進む」ボタンが消える。
+- 「質問はすべて解答しました。」と表示。
+- その時点で初めて「コンセプト案（3案）を生成する」ボタンが表示。
 
 ## セットアップ
 
