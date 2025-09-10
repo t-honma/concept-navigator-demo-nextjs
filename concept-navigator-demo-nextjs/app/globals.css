@@ -1,11 +1,11 @@
-/* globals.css */
+/* globals.css - ver1.4 用 */
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #f9fafb;
+  background: #f3f4f6; /* 少し濃いグレー背景 */
   margin: 0;
   padding: 20px;
-  color: #111;
+  color: #111827; /* 濃いめの文字色 */
 }
 
 .container {
@@ -15,22 +15,23 @@ body {
 
 .card {
   background: white;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 16px;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #f3f4f6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
   cursor: pointer;
+  font-size: 0.95rem;
 }
 
 button.primary {
-  background: #2563eb;
+  background: #2563eb; /* 青色 */
   color: white;
   border: none;
 }
@@ -42,10 +43,11 @@ button:disabled {
 
 textarea {
   width: 100%;
-  min-height: 80px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
 }
 
 ul.clean {
@@ -55,11 +57,11 @@ ul.clean {
 
 .small {
   font-size: 0.85rem;
-  color: #555;
+  color: #6b7280; /* グレー寄り */
 }
 
 .row {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
 }
