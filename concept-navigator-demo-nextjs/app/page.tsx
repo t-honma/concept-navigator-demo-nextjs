@@ -32,7 +32,6 @@ export default function Page() {
   const [refineText, setRefineText] = useState<Record<number, string>>({});
 
   const canNext = input.trim().length > 0;
-  const allAnswered = answers.length === QUESTIONS.length && answers.every(a => a && a.length > 0);
 
   function handleNext() {
     if (!canNext) return;
@@ -70,14 +69,6 @@ export default function Page() {
       setLoading(false);
     }
   }
-
-  const presetHints = [
-    "「人が」を主語にして、コンセプト文を修正してください。",
-    "抽象語を避け、具体的な動詞と名詞を含めてください。",
-    "異なる単語を使って再生成してください（意味は維持）。",
-    "現場で使う指針として、誰が何をするか明確にしてください。",
-    "名詞止めは避けてください（動詞を含める）。"
-  ];
 
   async function handleRefine(index: number) {
     const instruction = (refineText[index] || "").trim();
@@ -123,7 +114,7 @@ export default function Page() {
 
   return (
     <div className="container">
-      <h1>Concept Navigator – ver2.0（リライト指示対応）</h1>
+      <h1>Concept Navigator – ver2.1（UI微調整）</h1>
       <p className="small">全13問に答えたあと、各コンセプトの下で追加指示を入力して「再生成」できます。</p>
 
       <div className="card" style={{marginBottom:16}}>
@@ -156,7 +147,7 @@ export default function Page() {
 
         <hr/>
 
-        <h4>これまでの回答</h4>
+        <h4 style={{marginBottom:8}}>これまでの回答</h4>
         <ul className="clean">
           {answers.map((a, i) => (
             <li key={i}><span className="small">Q{i+1}:</span> {a}</li>
@@ -175,30 +166,28 @@ export default function Page() {
 
         {result && result.concepts && result.concepts.length > 0 && (
           <div style={{marginTop:16}}>
-            <h3>生成結果（3案）</h3>
-            <div className="row">
+            <h3 style={{marginBottom:8}}>生成結果（3案）</h3>
+            <div className="small" style={{marginBottom:12, whiteSpace:"pre-line"}}>
+              {`追加指示をすることで、生成されたコンセプト文を修正できます
+（追加指示の例）
+・「人が」を主語にして、コンセプト文を修正してください。
+・抽象語を避け、具体的な動詞と名詞を含めてください。
+・異なる単語を使って再生成してください（意味は維持）。
+・名詞止めは避けてください（動詞を含める）。`}
+            </div>
+            <div className="results">
               {result.concepts.map((c, idx) => (
-                <div key={idx} className="card" style={{flex:"1 1 320px"}}>
+                <div key={idx} className="card">
                   <h5>{idx+1}. {c.concept}</h5>
                   <p>{c.description}</p>
 
                   <div style={{marginTop:8}}>
                     <label className="small">追加指示</label>
                     <textarea
-                      placeholder="例：「人が」を主語にして、コンセプト文を修正してください。"
+                      placeholder="ここに追加指示を入力...（上の例を参考に）"
                       value={refineText[idx] || ""}
                       onChange={e=>setRefineText(prev=>({ ...prev, [idx]: e.target.value }))}
                     />
-                    <div style={{display:"flex", gap:8, flexWrap:"wrap", marginTop:6}}>
-                      {presetHints.map((hint, hIdx) => (
-                        <button
-                          key={hIdx}
-                          onClick={()=> setRefineText(prev=>({ ...prev, [idx]: hint }))}
-                        >
-                          例{hIdx+1}
-                        </button>
-                      ))}
-                    </div>
                     <div style={{display:"flex", gap:8, marginTop:8}}>
                       <button
                         className="primary"
@@ -217,7 +206,7 @@ export default function Page() {
       </div>
 
       <footer>
-        コンセプト作成ナビゲーター（プロトタイプ ver2.0）／リライト指示機能つき。
+        コンセプト作成ナビゲーター（プロトタイプ ver2.1）／UI微調整：縦積みカード・文字サイズ調整・ガイド文追加。
       </footer>
     </div>
   );
